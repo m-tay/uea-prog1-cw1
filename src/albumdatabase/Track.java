@@ -30,7 +30,7 @@ public class Track
         return duration.getDurationInSeconds();
     }
     
-    public String getTrackTitle()
+    public String toString()
     {
         return trackTitle;
     }
