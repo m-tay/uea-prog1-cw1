@@ -26,4 +26,15 @@ public class Duration
         return seconds + (minutes * 60) + (hours * 60 * 60);
     }
 
+    public static String convertSecsToString(int secondsIn)
+    {
+        int hours = secondsIn / 3600;
+        secondsIn = secondsIn % 3600;
+        int minutes = secondsIn / 60;
+        secondsIn = secondsIn % 60;
+        int seconds = secondsIn;
+        
+        return hours + ":" + minutes + ":" + seconds;
+    }
+    
 }

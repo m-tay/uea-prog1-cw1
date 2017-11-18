@@ -56,6 +56,7 @@ public class AlbumCollection
         }
         catch (Exception exception)
         {
+            System.out.println("Error reading file");
             exception.printStackTrace();
         }
     };
@@ -93,6 +94,28 @@ public class AlbumCollection
         }
         
         return longestTrack;
+    }
+    
+    public Album getAlbumWithMostTracks()
+    {
+        int albumIndex = -1;
+        int numTracks = 0;
+        
+        // loop through album collection
+        for(int i = 0; i < albumCollection.size(); i++)
+        {
+            // if number of tracks is greater than previous album
+            if(albumCollection.get(i).getNumberOfTracks() > numTracks)
+            {
+                // save number of tracks found
+                numTracks = albumCollection.get(i).getNumberOfTracks();
+                
+                // store index of largest album (so it can be retrieved later)
+                albumIndex = i;
+            }
+        }
+        
+        return albumCollection.get(albumIndex);
     }
     
     

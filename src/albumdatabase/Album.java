@@ -52,6 +52,11 @@ public class Album implements Comparable<Album>
     {
        return albumTitle;
     }
+       
+    public String toString()
+    {
+        return albumArtist + " - " + albumTitle;
+    }
     
     // returns album playtime in seconds
     public int getAlbumPlaytimeInSeconds()
