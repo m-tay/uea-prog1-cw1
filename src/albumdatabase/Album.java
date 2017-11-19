@@ -1,6 +1,10 @@
 /*
  * File:        Album.java
  * Created by:  Matthew Taylor
+ * Description: Stores album details and an ArrayList<Track> object. Provides
+                methods to add tracks, get various details about tracks within
+                the album. Implements compareTo() so can be sorted by album
+                artist and album title.
  */
 
 package albumdatabase;
@@ -58,11 +62,12 @@ public class Album implements Comparable<Album>
         return albumArtist + " - " + albumTitle;
     }
     
-    // returns album playtime in seconds
+    
     public int getAlbumPlaytimeInSeconds()
     {
         int albumDurationInSeconds = 0;
                 
+        // loop through each track and return duration in seconds
         for(int i = 0; i < trackList.size(); i++)
         {
             albumDurationInSeconds += trackList.get(i).trackDurationInSeconds();
@@ -82,6 +87,8 @@ public class Album implements Comparable<Album>
         int trackIndex = 0;
         int duration = 0;
         
+        // loop through each album track, check if it is longest track and
+        // record it's position in trackIndex
         for (int i = 0; i < trackList.size(); i++)
         {
             if (trackList.get(i).trackDurationInSeconds() > duration)
@@ -91,6 +98,7 @@ public class Album implements Comparable<Album>
             }
         }
         
+        // use trackIndex to return the Track object
         return trackList.get(trackIndex);
     }
     

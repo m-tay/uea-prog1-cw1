@@ -1,6 +1,9 @@
 /*
  * File:        Duration.java
  * Created by:  Matthew Taylor
+ * Description: Holds the duration of a particular track, provides methods
+                to get durations in seconds for adding durations and converting
+                them back to hh:mm:ss
  */
 
 package albumdatabase;
@@ -26,6 +29,7 @@ public class Duration
         return seconds + (minutes * 60) + (hours * 60 * 60);
     }
 
+    // converts seconds input into an hh:mm:ss format for ease of reading
     public static String convertSecsToString(int secondsIn)
     {
         int hours = secondsIn / 3600;

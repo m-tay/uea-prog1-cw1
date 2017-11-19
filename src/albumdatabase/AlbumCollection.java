@@ -1,6 +1,8 @@
 /*
  * File:        AlbumCollection.java
  * Created by:  Matthew Taylor
+ * Description: Stores a set of albums, has methods for reading files and operations
+                that affect the whole album collection
  */
 package albumdatabase;
 
@@ -83,9 +85,13 @@ public class AlbumCollection
         Track longestTrack = new Track();
         int duration = 0;
         
+        // loop through each album in collection
         for (int i = 0; i < albumCollection.size(); i++)
         {
+            // for each album, get the longest track
             Track currentTrack = albumCollection.get(i).getLongestTrack();
+            
+            // if longest track duration is longer than prev. found, save Track
             if (currentTrack.trackDurationInSeconds() > duration)
             {
                 duration = currentTrack.trackDurationInSeconds();
@@ -124,28 +130,28 @@ public class AlbumCollection
     public static void main(String[] args) 
     {
     
-    // test creating AlbumCollection
-    System.out.println("Program starting...");
-    AlbumCollection myAlbums = new AlbumCollection();
+        // test creating AlbumCollection
+        System.out.println("Program starting...");
+        AlbumCollection myAlbums = new AlbumCollection();
 
-    myAlbums.readAlbumList();
-    System.out.println("Album list read (hopefully)...");
-        
-    // test printing Album ollection
-    for(int i = 0; i < myAlbums.albumCollection.size(); i++)
-    {
-        System.out.println(myAlbums.albumCollection.get(i).getArtist());
-    }
-    
-    // test sorting and printing AlbumCollection
-    System.out.println("Sorted list: ");
-      
-    Collections.sort(myAlbums.albumCollection);
+        myAlbums.readAlbumList();
+        System.out.println("Album list read (hopefully)...");
 
-    for(int i = 0; i < myAlbums.albumCollection.size(); i++)
-    {
-        System.out.println(myAlbums.albumCollection.get(i).getArtist());
-    }
+        // test printing Album ollection
+        for(int i = 0; i < myAlbums.albumCollection.size(); i++)
+        {
+            System.out.println(myAlbums.albumCollection.get(i).getArtist());
+        }
+
+        // test sorting and printing AlbumCollection
+        System.out.println("Sorted list: ");
+
+        Collections.sort(myAlbums.albumCollection);
+
+        for(int i = 0; i < myAlbums.albumCollection.size(); i++)
+        {
+            System.out.println(myAlbums.albumCollection.get(i).getArtist());
+        }
 
     }
     

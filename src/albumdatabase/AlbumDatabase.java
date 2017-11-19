@@ -1,6 +1,7 @@
 /*
  * File:        AlbumDatabase.java
  * Created by:  Matthew Taylor
+ * Description: Main function, that demonstrates the coursework tasks
  */
 package albumdatabase;
 
@@ -38,7 +39,7 @@ public class AlbumDatabase
         System.out.println("Task 3: Display total play time of Pink Floyd albums");
         System.out.println("----------------------------------------------------");
         
-        // get arraylist of pink floyd albums
+        // get arraylist of "Pink Floyd" albums
         ArrayList<Album> subset = myAlbums.albumSubset("Pink Floyd");
         
         int playtime = 0;
