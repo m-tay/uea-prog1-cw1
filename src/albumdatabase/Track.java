@@ -1,6 +1,8 @@
 /*
  * File:        Duration.java
  * Created by:  Matthew Taylor
+ * Description: Holds details of tracks (inc. reference back to containing
+                album). Provides method to get duration of track.
  */
 
 package albumdatabase;
