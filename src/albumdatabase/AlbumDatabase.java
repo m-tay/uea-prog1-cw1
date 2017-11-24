@@ -5,7 +5,6 @@
  */
 package albumdatabase;
 
-import java.util.Collections;
 import java.util.ArrayList;
 
 public class AlbumDatabase 
@@ -26,12 +25,8 @@ public class AlbumDatabase
         System.out.println("Task 2: Display albums alphabetically");
         System.out.println("-------------------------------------");
         
-        Collections.sort(myAlbums.albumCollection);
-
-        for(int i = 0; i < myAlbums.albumCollection.size(); i++)
-        {
-            System.out.println(myAlbums.albumCollection.get(i));
-        }
+        myAlbums.sortCollection();
+        myAlbums.printAlbum();
 
         
         
@@ -39,17 +34,16 @@ public class AlbumDatabase
         System.out.println("Task 3: Display total play time of Pink Floyd albums");
         System.out.println("----------------------------------------------------");
         
-        // get arraylist of "Pink Floyd" albums
-        ArrayList<Album> subset = myAlbums.albumSubset("Pink Floyd");
+        // get sub-collection of "Pink Floyd" albums
+        AlbumCollection subset = myAlbums.albumSubset("Pink Floyd");
         
-        int playtime = 0;
+        // print subset of albums
+        subset.printAlbum();
         
-        for(int i = 0; i < subset.size(); i++)
-        {
-            playtime = playtime + subset.get(i).getAlbumPlaytimeInSeconds();
-        }
-        
-        System.out.println(Duration.convertSecsToString(playtime));
+        System.out.println("-----------------------");                          
+        // get playtime in seconds
+        int playtime = subset.getCollectionDuration();
+        System.out.println("Total duration: " + Duration.convertSecsToString(playtime));
         
         
         
@@ -57,7 +51,8 @@ public class AlbumDatabase
         System.out.println("Task 4: Display album with largest number of tracks");
         System.out.println("---------------------------------------------------");
         
-        System.out.println(myAlbums.getAlbumWithMostTracks());
+        myAlbums.printAlbum(myAlbums.getAlbumWithMostTracks());
+        System.out.println("Number of tracks: " + myAlbums.getAlbumWithMostTracks().getNumOfTracks());
         
         
         

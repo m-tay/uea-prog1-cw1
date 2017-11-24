@@ -64,16 +64,17 @@ public class AlbumCollection
     };
 
     // returns arraylist of albums where the artist matches the artist string
-    public ArrayList<Album> albumSubset(String artist)
+    public AlbumCollection albumSubset(String artist)
     {
-        ArrayList<Album> subset = new ArrayList<Album>();
+        AlbumCollection subset = new AlbumCollection();
         
         // for each album in the collection
-        for(int i = 0; i < this.albumCollection.size(); i++)
+        for(int i = 0; i < albumCollection.size(); i++)
         {
-            if(this.albumCollection.get(i).getArtist().equals(artist))
+            // if the album artist matches the string we're looking for
+            if(albumCollection.get(i).getArtist().equals(artist))
             {
-                subset.add(this.albumCollection.get(i));
+                subset.albumCollection.add(albumCollection.get(i));
             }
         }
         
@@ -123,6 +124,44 @@ public class AlbumCollection
         
         return albumCollection.get(albumIndex);
     }
+    
+    public int getCollectionDuration()
+    {
+        int playtime = 0;
+        
+        for(int i = 0; i < albumCollection.size(); i++)
+        {
+            playtime = playtime + albumCollection.get(i).getAlbumPlaytimeInSeconds();
+        }
+        
+        return playtime;
+    };
+    
+    
+    public void sortCollection()
+    {
+        Collections.sort(albumCollection);
+    }
+    
+    // prints all albums from collection
+    public void printAlbum()
+    {
+        System.out.printf("%-30s %-30s\n", "Artist", "Title");
+        System.out.println("-------------------------------------------------------------");
+        for(int i = 0; i < albumCollection.size(); i++)
+        {
+            System.out.printf("%-30s %-30s\n", albumCollection.get(i).getArtist(), albumCollection.get(i).getAlbumTitle());
+        }
+    }
+
+    // prints individual album passed to it
+    public void printAlbum(Album album)
+    {
+        System.out.printf("%-30s %-30s\n", "Artist", "Title");
+        System.out.println("-------------------------------------------------------------");
+        System.out.printf("%-30s %-30s\n", album.getArtist(), album.getAlbumTitle());
+    }
+    
     
     
     

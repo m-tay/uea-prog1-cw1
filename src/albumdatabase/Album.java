@@ -102,4 +102,11 @@ public class Album implements Comparable<Album>
         return trackList.get(trackIndex);
     }
     
+    public int getNumOfTracks()
+    {
+        int count = trackList.size();
+        return count;
+    };
+    
+    
 }
